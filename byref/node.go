@@ -1,42 +1,42 @@
 package byref
 
-import "github.com/marcelo-rocha/profiling-pointer-receivers/common"
+import "github.com/marcelo-rocha/profiling-pointer-receivers/tuple"
 
 type InnerNode struct {
-	child      common.Mapper
-	values     common.ValuesArray
-	loopLength int
+	child         tuple.Mapper
+	tuple         tuple.Tuple
+	iterationsQty int
 }
 
-func NewInnerNode(values common.ValuesArray, child common.Mapper, loopLength int) *InnerNode {
+func NewInnerNode(values tuple.Tuple, child tuple.Mapper, iterationsQty int) *InnerNode {
 	return &InnerNode{
-		child:      child,
-		values:     values,
-		loopLength: loopLength,
+		child:         child,
+		tuple:         values,
+		iterationsQty: iterationsQty,
 	}
 }
 
 func (n *InnerNode) Add(total []int64) {
-	for i := 0; i < n.loopLength; i++ {
+	for i := 0; i < n.iterationsQty; i++ {
 		n.child.Add(total)
 	}
-	for i := range n.values {
-		total[i] += n.values[i]
+	for i := range n.tuple {
+		total[i] += n.tuple[i]
 	}
 }
 
 type LeafNode struct {
-	values common.ValuesArray
+	tuple tuple.Tuple
 }
 
-func NewLeafNode(values common.ValuesArray) *LeafNode {
+func NewLeafNode(values tuple.Tuple) *LeafNode {
 	return &LeafNode{
-		values: values,
+		tuple: values,
 	}
 }
 
 func (n *LeafNode) Add(total []int64) {
-	for i := range n.values {
-		total[i] += n.values[i]
+	for i := range n.tuple {
+		total[i] += n.tuple[i]
 	}
 }
