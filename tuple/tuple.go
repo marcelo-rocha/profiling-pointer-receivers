@@ -2,7 +2,9 @@ package tuple
 
 const Size = 5
 
-type Tuple [Size]int64
+type Tuple struct {
+	V0, V1, V2, V3, V4 int64
+}
 
 type Mapper interface {
 	Add(total []int64)
