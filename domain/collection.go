@@ -1,6 +1,6 @@
 package domain
 
-func MakeTree(innerFactory InnerMapperFactory, leafFactory LeafMapperFactory) Mapper {
+func MakeCollection(innerFactory InnerMapperFactory, leafFactory LeafMapperFactory) Mapper {
 	InitialSlice := make([]int64, ValuesQty)
 	for i := range InitialSlice {
 		InitialSlice[i] = 1

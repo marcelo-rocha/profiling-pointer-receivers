@@ -13,25 +13,25 @@ import (
 )
 
 func BenchmarkListByReference(b *testing.B) {
-	root := domain.MakeTree(listbyref.NewInnerNode, listbyref.NewLeafNode)
+	root := domain.MakeCollection(listbyref.NewInnerNode, listbyref.NewLeafNode)
 	values := make([]int64, domain.ValuesQty)
 	root.Add(values)
 }
 
 func BenchmarkListByValue(b *testing.B) {
-	root := domain.MakeTree(listbyvalue.NewInnerNode, listbyvalue.NewLeafNode)
+	root := domain.MakeCollection(listbyvalue.NewInnerNode, listbyvalue.NewLeafNode)
 	values := make([]int64, domain.ValuesQty)
 	root.Add(values)
 }
 
 func BenchmarkTupleByReference(b *testing.B) {
-	root := domain.MakeTree(tuplebyref.NewInnerNode, tuplebyref.NewLeafNode)
+	root := domain.MakeCollection(tuplebyref.NewInnerNode, tuplebyref.NewLeafNode)
 	values := make([]int64, domain.ValuesQty)
 	root.Add(values)
 }
 
 func BenchmarkTupleByValue(b *testing.B) {
-	root := domain.MakeTree(tuplebyvalue.NewInnerNode, tuplebyvalue.NewLeafNode)
+	root := domain.MakeCollection(tuplebyvalue.NewInnerNode, tuplebyvalue.NewLeafNode)
 	values := make([]int64, domain.ValuesQty)
 	root.Add(values)
 }
