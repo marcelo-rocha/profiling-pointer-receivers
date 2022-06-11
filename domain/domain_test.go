@@ -12,26 +12,74 @@ import (
 	tuplebyvalue "github.com/marcelo-rocha/profiling-pointer-receivers/tuple/byvalue"
 )
 
-func BenchmarkListByReference(b *testing.B) {
-	root := domain.MakeCollection(listbyref.NewInnerNode, listbyref.NewLeafNode)
+func BenchmarkListByReferenceL5(b *testing.B) {
+	root := domain.MakeCollection5(listbyref.NewInnerNode, listbyref.NewLeafNode)
 	values := make([]int64, domain.ValuesQty)
 	root.Add(values)
 }
 
-func BenchmarkListByValue(b *testing.B) {
-	root := domain.MakeCollection(listbyvalue.NewInnerNode, listbyvalue.NewLeafNode)
+func BenchmarkListByValueL5(b *testing.B) {
+	root := domain.MakeCollection5(listbyvalue.NewInnerNode, listbyvalue.NewLeafNode)
 	values := make([]int64, domain.ValuesQty)
 	root.Add(values)
 }
 
-func BenchmarkTupleByReference(b *testing.B) {
-	root := domain.MakeCollection(tuplebyref.NewInnerNode, tuplebyref.NewLeafNode)
+func BenchmarkTupleByReferenceL5(b *testing.B) {
+	root := domain.MakeCollection5(tuplebyref.NewInnerNode, tuplebyref.NewLeafNode)
 	values := make([]int64, domain.ValuesQty)
 	root.Add(values)
 }
 
-func BenchmarkTupleByValue(b *testing.B) {
-	root := domain.MakeCollection(tuplebyvalue.NewInnerNode, tuplebyvalue.NewLeafNode)
+func BenchmarkTupleByValueL5(b *testing.B) {
+	root := domain.MakeCollection5(tuplebyvalue.NewInnerNode, tuplebyvalue.NewLeafNode)
+	values := make([]int64, domain.ValuesQty)
+	root.Add(values)
+}
+
+func BenchmarkListByReferenceL3(b *testing.B) {
+	root := domain.MakeCollection3(listbyref.NewInnerNode, listbyref.NewLeafNode)
+	values := make([]int64, domain.ValuesQty)
+	root.Add(values)
+}
+
+func BenchmarkListByValueL3(b *testing.B) {
+	root := domain.MakeCollection3(listbyvalue.NewInnerNode, listbyvalue.NewLeafNode)
+	values := make([]int64, domain.ValuesQty)
+	root.Add(values)
+}
+
+func BenchmarkTupleByReferenceL3(b *testing.B) {
+	root := domain.MakeCollection3(tuplebyref.NewInnerNode, tuplebyref.NewLeafNode)
+	values := make([]int64, domain.ValuesQty)
+	root.Add(values)
+}
+
+func BenchmarkTupleByValueL3(b *testing.B) {
+	root := domain.MakeCollection3(tuplebyvalue.NewInnerNode, tuplebyvalue.NewLeafNode)
+	values := make([]int64, domain.ValuesQty)
+	root.Add(values)
+}
+
+func BenchmarkListByReferenceL2(b *testing.B) {
+	root := domain.MakeCollection2(listbyref.NewInnerNode, listbyref.NewLeafNode)
+	values := make([]int64, domain.ValuesQty)
+	root.Add(values)
+}
+
+func BenchmarkListByValueL2(b *testing.B) {
+	root := domain.MakeCollection2(listbyvalue.NewInnerNode, listbyvalue.NewLeafNode)
+	values := make([]int64, domain.ValuesQty)
+	root.Add(values)
+}
+
+func BenchmarkTupleByReferenceL2(b *testing.B) {
+	root := domain.MakeCollection2(tuplebyref.NewInnerNode, tuplebyref.NewLeafNode)
+	values := make([]int64, domain.ValuesQty)
+	root.Add(values)
+}
+
+func BenchmarkTupleByValueL2(b *testing.B) {
+	root := domain.MakeCollection2(tuplebyvalue.NewInnerNode, tuplebyvalue.NewLeafNode)
 	values := make([]int64, domain.ValuesQty)
 	root.Add(values)
 }

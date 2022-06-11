@@ -6,8 +6,8 @@ import (
 )
 
 type InnerNode struct {
+	child domain.Mapper
 	tuple.Tuple
-	child         domain.Mapper
 	iterationsQty int
 }
 
