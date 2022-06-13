@@ -2,6 +2,7 @@ package domain_test
 
 import (
 	"testing"
+	"unsafe"
 
 	"github.com/marcelo-rocha/profiling-pointer-receivers/domain"
 
@@ -11,6 +12,16 @@ import (
 	tuplebyref "github.com/marcelo-rocha/profiling-pointer-receivers/tuple/byref"
 	tuplebyvalue "github.com/marcelo-rocha/profiling-pointer-receivers/tuple/byvalue"
 )
+
+func TestListByReference(t *testing.T) {
+	l := listbyvalue.LeafNode{}
+	r1 := unsafe.Sizeof(l)
+
+	tuple := tuplebyvalue.LeafNode{}
+	r2 := unsafe.Sizeof(tuple)
+
+	t.Log("Size:", r1, r2)
+}
 
 func BenchmarkListByReferenceL5(b *testing.B) {
 	root := domain.MakeCollection5(listbyref.NewInnerNode, listbyref.NewLeafNode)

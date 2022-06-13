@@ -10,10 +10,10 @@ func MakeCollection5(innerFactory InnerMapperFactory, leafFactory LeafMapperFact
 		innerFactory(InitialSlice,
 			innerFactory(InitialSlice,
 				innerFactory(InitialSlice,
-					leafFactory(InitialSlice), InnerIterationsQty/8),
-				InnerIterationsQty/4),
-			InnerIterationsQty/2),
-		InnerIterationsQty)
+					leafFactory(InitialSlice), InnerIterationsQtyL5/8),
+				InnerIterationsQtyL5/4),
+			InnerIterationsQtyL5/2),
+		InnerIterationsQtyL5)
 }
 
 func MakeCollection3(innerFactory InnerMapperFactory, leafFactory LeafMapperFactory) Mapper {
@@ -24,8 +24,8 @@ func MakeCollection3(innerFactory InnerMapperFactory, leafFactory LeafMapperFact
 
 	return innerFactory(InitialSlice,
 		innerFactory(InitialSlice,
-			leafFactory(InitialSlice), InnerIterationsQty),
-		InnerIterationsQty*2)
+			leafFactory(InitialSlice), InnerIterationsQtyL3/2),
+		InnerIterationsQtyL3)
 }
 
 func MakeCollection2(innerFactory InnerMapperFactory, leafFactory LeafMapperFactory) Mapper {
@@ -35,6 +35,6 @@ func MakeCollection2(innerFactory InnerMapperFactory, leafFactory LeafMapperFact
 	}
 
 	return innerFactory(InitialSlice,
-		leafFactory(InitialSlice), InnerIterationsQty*128)
+		leafFactory(InitialSlice), InnerIterationsQtyL2)
 
 }
